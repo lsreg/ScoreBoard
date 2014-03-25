@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreBoardServer", "ScoreBoardServer\ScoreBoardServer.csproj", "{8AEA3461-1A78-401D-8ED4-841503E2A5E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreBoardClient", "ScoreBoardClient\ScoreBoardClient.csproj", "{8E62D986-156F-431F-A758-EBD7B31FC761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreBoardTestApp", "ScoreBoardTestApp\ScoreBoardTestApp.csproj", "{0C93B821-A9A6-43DC-87B9-0507AD60520A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AEA3461-1A78-401D-8ED4-841503E2A5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEA3461-1A78-401D-8ED4-841503E2A5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEA3461-1A78-401D-8ED4-841503E2A5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEA3461-1A78-401D-8ED4-841503E2A5E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E62D986-156F-431F-A758-EBD7B31FC761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E62D986-156F-431F-A758-EBD7B31FC761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E62D986-156F-431F-A758-EBD7B31FC761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E62D986-156F-431F-A758-EBD7B31FC761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C93B821-A9A6-43DC-87B9-0507AD60520A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C93B821-A9A6-43DC-87B9-0507AD60520A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C93B821-A9A6-43DC-87B9-0507AD60520A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C93B821-A9A6-43DC-87B9-0507AD60520A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
