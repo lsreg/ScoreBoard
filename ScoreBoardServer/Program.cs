@@ -14,7 +14,6 @@ namespace ScoreBoardServer
         
         Console.WriteLine("The service is ready.");
         Console.WriteLine("Press <ENTER> to terminate service.");
-        Console.WriteLine();
         Console.ReadLine();
 
         serviceHost.Close();
