@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 using Raven.Client.Embedded;
 
 namespace ScoreBoardServer
 {
+  /// <summary>
+  /// Реализация сервиса доски рекордов.
+  /// </summary>
+  [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)] 
   internal class ScoreBoardService : IScoreBoard
   {
     private EmbeddableDocumentStore documentStore;
@@ -26,30 +30,33 @@ namespace ScoreBoardServer
       catch (Exception ex)
       {
         Console.WriteLine(ex.Message);
-      }
-      return new List<ScoreBoardResult>();
+        return new List<ScoreBoardResult>();
+      }      
     }
 
     public void AddResult(ScoreBoardResult result)
     {
       try
       {
-        using (var session = this.documentStore.OpenSession())
+        lock (this.documentStore)
         {
-          ScoreBoardResult record = session.Query<ScoreBoardResult>().SingleOrDefault(r => r.Game == result.Game && r.UserCode == result.UserCode);
-          if (record != null)
+          using (var session = this.documentStore.OpenSession())
           {
-            if (record.Score < result.Score)
+            ScoreBoardResult record = session.Query<ScoreBoardResult>().SingleOrDefault(r => r.Game == result.Game && r.UserCode == result.UserCode);
+            if (record != null)
             {
-              record.Score = result.Score;
-              record.UserTitle = result.UserTitle;
+              if (record.Score < result.Score)
+              {
+                record.Score = result.Score;
+                record.UserName = result.UserName;
+                session.SaveChanges();
+              }
+            }
+            else
+            {
+              session.Store(result);
               session.SaveChanges();
             }
-          }
-          else
-          {
-            session.Store(result);
-            session.SaveChanges();
           }
         }
       }
@@ -61,8 +68,8 @@ namespace ScoreBoardServer
 
     public ScoreBoardService()
     {
-      this.documentStore = new EmbeddableDocumentStore { DataDirectory = @"D:/temp/RavenDB/" };
-      this.documentStore.Initialize();
+      this.documentStore = new EmbeddableDocumentStore { DataDirectory = ConfigurationManager.AppSettings["PathToDatabase"] };      
+      this.documentStore.Initialize();      
     }
   }
 }

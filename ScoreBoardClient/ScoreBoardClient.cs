@@ -4,6 +4,9 @@ using ScoreBoardServer;
 
 namespace ScoreBoard
 {
+  /// <summary>
+  /// Клиент для доски рекордов.
+  /// </summary>
   public class ScoreBoardClient : ClientBase<IScoreBoard>, IScoreBoard
   {
     public ScoreBoardClient(string remoteAddress) :
