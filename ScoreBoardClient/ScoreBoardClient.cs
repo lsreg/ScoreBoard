@@ -10,7 +10,7 @@ namespace ScoreBoard
   public class ScoreBoardClient : ClientBase<IScoreBoard>, IScoreBoard
   {
     public ScoreBoardClient(string remoteAddress) :
-      base(new NetTcpBinding(), new EndpointAddress(remoteAddress)) { }
+      base(new BasicHttpBinding(), new EndpointAddress(remoteAddress)) { }
 
     public List<ScoreBoardResult> GetTopResults(int count)
     {

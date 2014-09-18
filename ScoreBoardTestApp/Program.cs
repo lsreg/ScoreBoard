@@ -12,7 +12,7 @@ namespace ScoreBoardTestApp
   {
     static void Main(string[] args)
     {
-      var client = new ScoreBoardClient("net.tcp://localhost:9876/");
+      var client = new ScoreBoardClient("http://127.0.0.1:9876/");
       client.AddResult(new ScoreBoardResult() { Game = "Civilization", UserCode = "Ivanov", UserName = "Ivanov II", Score = 29 });
       client.AddResult(new ScoreBoardResult() { Game = "Civilization", UserCode = "Petrov", UserName = "Petrov PP", Score = 13 });
       client.AddResult(new ScoreBoardResult() { Game = "Civilization", UserCode = "Sidorov", UserName = "Sidorov SS", Score = 15 });
